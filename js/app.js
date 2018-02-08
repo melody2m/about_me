@@ -131,7 +131,7 @@ var correctNum = 6;
 
 while (guessCount < 4){
     var ans6 = prompt('How much is too much?').trim();
-    var ans6Num = parseInt(ans6)
+    var ans6Num = parseInt(ans6);
 
     if (ans6Num > correctNum){
         alert('Your guess, ' + ans6Num + ', is more than too much. Try again.');
