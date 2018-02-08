@@ -132,45 +132,6 @@ function question5() {
 }
 question5();
 //new directions
-<<<<<<< HEAD
-
-alert('the yes/no part is over, ' + userName + '. You\'ll have to answer the next question as a number.')
-
-//sixth question, guess a number in 4 attempts
-
-//initialize a guess counting variable and a variable storing the correct answer
-
-var guessCount = 0;
-var correctNum = 6;
-
-// loop for guessing the right answer
-
-while (guessCount < 4){
-    var ans6 = prompt('How much is too much?').trim();
-    var ans6Num = parseInt(ans6);
-
-    if (ans6Num > correctNum){
-        alert('Your guess, ' + ans6Num + ', is more than too much. Try again.');
-        guessCount++;
-        alert ((4 - guessCount) + ' guess(es) remaining.');
-    }
-    else if (ans6Num < correctNum){
-        alert('Your guess, ' + ans6Num + ', is less than too much. Try again.');
-        guessCount++;
-        alert ((4 - guessCount) + ' guess(es) remaining.');
-    }
-    else if (ans6Num === correctNum) {
-        alert('Correct! your guess, ' + ans6Num + ', is exactly too much!');
-        alert ('You guessed it in ' + (guessCount + 1) + ' guess(es).');
-        numRight++;
-        break;
-    }
-    else {
-        alert('What? You just lost a guess.')
-        guessCount++;
-        alert ((4 - guessCount) + ' guess(es) remaining.');
-    }
-=======
 function question6() {
   alert('the yes/no part is over, ' + userName + '. You\'ll have to answer the next question as a number.')
   
@@ -221,7 +182,6 @@ function question6() {
   }
   
   console.log('user receives a grade of ' + gotQuestion6 + ' on this question.');
->>>>>>> 03e3aad680d7d39ebbe9d8fc158f8d27c5d2cd16
 }
 question6();
 //final question, number 7
