@@ -1,5 +1,19 @@
 body {
-    color: white;
-    background-image: url("../img/space.jpg")
+    background-image: url("../img/space.jpg");
 }
+
+h1 {
+        color: rgb(48, 223, 247);
+}
+
+h2 {
+    color: rgb(146, 223, 193);
+}
+
+ol, ul {
+    color: white;
+    border: 5px groove white;
+    width: 30%;
+}
+
 

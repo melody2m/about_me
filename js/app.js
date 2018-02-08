@@ -1,6 +1,9 @@
 
 "use strict";
 
+//initialize counter for correct answers (4 answers are always correct)
+var numRight = 4; 
+
 //introductions
 alert('welcome to my guessing game');
 alert('these questions might not be strictly about me, but you should learn a bit about me through answering them, nonetheless.');
@@ -11,7 +14,7 @@ alert('Okay, great, thanks for being here... ' + userName + '.');
 console.log ('asked for a name, received ' + userName);
 
 //instructions
-alert('now for the questions. please answer in the format y/n or yes/no');
+alert('now for the questions. please answer these first five in the format y/n or yes/no');
 
 //first question loop
 var doneQ = false;
@@ -61,6 +64,7 @@ while (doneQ === false) {
 
     if (ans3 === 'y' || ans3 === 'yes') {
         alert('Heck yeah, ' + userName + ', rock on!');
+        numRight++;
         doneQ = true;
     }
     else if (ans3 === 'n' || ans3 === 'no') {
@@ -92,7 +96,7 @@ while (doneQ === false) {
 }
 console.log ('asked for answer to question 4, received ' + ans4);
 
-//fifth and final question
+//fifth question
 doneQ = false;
 
 while (doneQ === false) {
@@ -112,7 +116,125 @@ while (doneQ === false) {
 }
 console.log('asked for answer to question 5, received ' + ans5);
 
+//new directions
+
+alert('the yes/no part is over, ' + userName + '. You\'ll have to answer the next question as a number.')
+
+//sixth question, guess a number in 4 attempts
+
+//initialize a guess counting variable and a variable storing the correct answer
+
+var guessCount = 0;
+var correctNum = 6;
+
+// loop for guessing the right answer
+
+while (guessCount < 4){
+    var ans6 = prompt('How much is too much?').trim();
+    var ans6Num = parseInt(ans6)
+
+    if (ans6Num > correctNum){
+        alert('Your guess, ' + ans6Num + ', is more than too much. Try again.');
+        guessCount++;
+        alert ((4 - guessCount) + ' guess(es) remaining.');
+    }
+    else if (ans6Num < correctNum){
+        alert('Your guess, ' + ans6Num + ', is less than too much. Try again.');
+        guessCount++;
+        alert ((4 - guessCount) + ' guess(es) remaining.');
+    }
+    else if (ans6Num === correctNum) {
+        alert('Correct! your guess, ' + ans6Num + ', is exactly too much!');
+        alert ('You guessed it in ' + (guessCount + 1) + ' guess(es).');
+        numRight++;
+        break;
+    }
+    else {
+        alert('What? You just lost a guess.')
+        guessCount++;
+        alert ((4 - guessCount) + ' guess(es) remaining.');
+    }
+}
+// transition to the next question
+
+if (ans6Num === correctNum) {
+    alert ('Super job, ' + userName + ', now for the next question.');
+    var gotQuestion6 = 'excellent';
+}
+else {
+    alert ('Too bad ' + userName + ', you couldn\'t guess it. Time to move on. The right answer was ' + correctNum + ', by the way');
+    gotQuestion6 = 'bad';
+}
+
+console.log('user receives a grade of ' + gotQuestion6 + ' on this question.');
+
+//final question, number 7
+
+// reset guessCount and make an array for correct guesses. also initialize another var to break the loop with
+
+var guessCount = 0;
+var correctGuesses = ["money","fame","sex","lambo","gucci","goose","dancin","gettin swole"];
+var q7Right = false;
+
+while (guessCount < 6){
+    
+    var ans7 = prompt('What really matters in life? You only have to guess one thing out of 8 I thought of so this should be easy.');
+
+    for (var i = 0; i < correctGuesses.length; i++){
+        console.log (i)
+        if (correctGuesses[i] === ans7){
+            alert('you know your stuff, ' + userName + '. ' + ans7 + ' is fantastic.');
+            alert('you got something right in ' + (guessCount + 1) + ' guess(es).');
+            q7Right = true;
+            numRight++;
+        }
+    }
+
+    if (q7Right === true){
+        break;    
+    }
+    else {
+        guessCount++;
+        alert('nah... try again.');
+        if (guessCount === 6){
+            alert('actually, you\'re done.')
+        }
+        alert((6 - guessCount) + ' guess(es) remaining.');
+    }
+}
+
+
+if (q7Right === true) {
+    alert('cool, you got it.');
+    console.log(userName + ' got question 6 right.');
+}
+else{
+    alert('maybe you\'ll understand one day.');
+}
+
+// share correct answers
+
+alert('here are the correct answers. 8 of them.')
+
+for (var i = 0; i < correctGuesses.length; i++){
+    alert('number ' + (i +1) + ': ' + correctGuesses[i]);
+}
+
+console.log('numRight is ' + numRight);
+
 //end
 
-alert('thanks for answering these questions, ' + userName + '! I really and truly appreciate it.')
-alert('you answered: ' + ans1 + ' ' + ' ' + ans2 + ' ' + ans3 + ' ' + ans4 + ' ' + ans5);
+var goodEnd = false;
+
+if (numRight === 7){
+    goodEnd = true;
+}
+
+alert('That\s all the questions! Thanks for answering, ' + userName + '! I really and truly appreciate it.');
+
+if (goodEnd === true){
+    alert('you got all the questions right. fantastic. :)))');
+}
+else{
+    alert('you got ' + numRight + ' out of 7 questions right. Feel free to try for perfect by hitting refresh.');
+}
